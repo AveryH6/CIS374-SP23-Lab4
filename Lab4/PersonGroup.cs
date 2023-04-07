@@ -59,23 +59,45 @@ namespace Lab4
 
             // This isn't correct code. 
             // It's is just a sample of how to interact with the classes.
-            var group1 = new PersonGroup();
-            var group2 = new PersonGroup();
+            //var group1 = new PersonGroup();
+            //var group2 = new PersonGroup();
 
-            foreach (var person in persons)
+            //personGroups.Add(group1);
+            //personGroups.Add(group2);
+
+            // 1) sort the list of persons
+            // persons.Sort()
+            
+            personGroups.Sort();
+
+            var currentGroup = new PersonGroup();
+
+            
+
+            // 2) repeatedly add next person if they are within distance/ otherwise make new group.
+            // foreach person in persons
+            foreach (var p in persons)
             {
-                if (person.FirstName.StartsWith("K"))
+                // if(current group == empty) add first person
+                if (currentGroup.Count == 0)
                 {
-                    group1.Persons.Add(person);
+                    currentGroup.Persons.Add(p); ;
                 }
+                // else if distance (person, current group[0]) <= distance
+                else if (p.currentGroup[0] <= distance))
+                {
+                    // add person
+                    currentGroup.Persons.Add(p);
+                }
+                // else
                 else
                 {
-                    group2.Persons.Add(person);
+                    // add the current group to a list of personGroups
+                    personGroups.Add(currentGroup);
                 }
             }
 
-            personGroups.Add(group1);
-            personGroups.Add(group2);
+            
 
             return personGroups;
         }
