@@ -24,9 +24,9 @@ class Program
 
         var personGroups = PersonGroup.GeneratePersonGroups(new List<Person>(persons), 3);
 
-        for(var index =0; index < personGroups.Count; index++)
+        for (var index = 0; index < personGroups.Count; index++)
         {
-            Console.WriteLine( $"Group {index}: " + personGroups[index] );
+            Console.WriteLine($"Group {index}: " + personGroups[index]);
         }
 
     }

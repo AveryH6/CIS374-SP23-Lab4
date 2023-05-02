@@ -14,7 +14,13 @@ namespace Lab4
         }
 
         // TODO
-        public char? EndingLetter { get; }
+        public char? EndingLetter
+        {
+            get
+            {
+                return Persons[Count - 1].FirstName[Count - 1];
+            }
+        }
 
         public int Count => Persons.Count;
 
@@ -55,7 +61,7 @@ namespace Lab4
         // TODO
         public static List<PersonGroup> GeneratePersonGroups(List<Person> persons, int distance)
         {
-            var personGroups = new List<PersonGroup>();
+            List<PersonGroup> personGroups = new List<PersonGroup>();
 
             // This isn't correct code. 
             // It's is just a sample of how to interact with the classes.
@@ -68,7 +74,7 @@ namespace Lab4
             // 1) sort the list of persons
             // persons.Sort()
             
-            personGroups.Sort();
+            persons.Sort();
 
             var currentGroup = new PersonGroup();
 
@@ -84,7 +90,7 @@ namespace Lab4
                     currentGroup.Persons.Add(p); ;
                 }
                 // else if distance (person, current group[0]) <= distance
-                else if (p.currentGroup[0] <= distance))
+                else if (p.Distance(currentGroup[0]) <= distance)
                 {
                     // add person
                     currentGroup.Persons.Add(p);
@@ -94,6 +100,12 @@ namespace Lab4
                 {
                     // add the current group to a list of personGroups
                     personGroups.Add(currentGroup);
+
+                    var newCurrentGroup = new PersonGroup();
+
+                    currentGroup = newCurrentGroup;
+
+                    newCurrentGroup.Persons.Add(p);
                 }
             }
 
@@ -101,6 +113,5 @@ namespace Lab4
 
             return personGroups;
         }
-
     }
 }
